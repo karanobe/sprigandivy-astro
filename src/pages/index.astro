@@ -16,11 +16,11 @@ import Layout from '../layouts/Layout.astro';
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
-      <span class="eyebrow">Wedding &amp; Event Planners</span>
+      <span class="eyebrow">Wedding &amp; Event Planners · Orange County, CA</span>
       <span class="gold-line"></span>
-      <h1>To Know Us Is<br />to Love Us</h1>
-      <p>We would love to meet up and chat about how we can make YOUR event happen!</p>
-      <a href="#contact" class="btn btn-outline">Let's Chat</a>
+      <h1>Every Detail,<br />Beautifully Executed</h1>
+      <p>From intimate gatherings to grand celebrations — we plan, design, and coordinate events that feel effortlessly you.</p>
+      <a href="#contact" class="btn btn-outline">Start Planning</a>
     </div>
     <a href="#about" class="hero-scroll" aria-label="Scroll down">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -96,56 +96,148 @@ import Layout from '../layouts/Layout.astro';
   <section id="services" class="section services">
     <div class="services-bg-stripe"></div>
     <div class="container">
+
+      <!-- Wedding Packages -->
       <div class="section-header">
-        <span class="eyebrow">What We Do</span>
+        <span class="eyebrow">Wedding Services</span>
         <span class="gold-line"></span>
         <h2>Sit Back While We Create<br />the Experience of a Lifetime</h2>
       </div>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+
+      <div class="packages-grid">
+
+        <!-- Sprig of Holly -->
+        <div class="package-card">
+          <div class="package-header">
+            <span class="package-eyebrow">Entry</span>
+            <h3>Sprig of Holly</h3>
+            <p class="package-type">Day of Coordination</p>
           </div>
-          <h3>Full-Service Wedding Planning</h3>
-          <p>From venue selection to vendor management, we handle every detail of your perfect day so you can be fully present in each precious moment.</p>
-          <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+          <p class="package-desc">Ideal for couples who have done the leg work in planning their big day, but would like assistance in execution on the day of their wedding.</p>
+          <ul class="package-list">
+            <li>3 face-to-face meetings (1 must be at venue)</li>
+            <li>Creation of wedding timeline</li>
+            <li>Manage all vendor details</li>
+            <li>Assistance with budget &amp; breakdown of costs</li>
+            <li>Organize wedding party &amp; conduct rehearsal</li>
+            <li>Assist wedding party with flowers/corsages</li>
+            <li>Seating arrangement &amp; crowd control</li>
+            <li>Set up personal items (signage, DIY décor, etc.)</li>
+            <li>Audio/visual check</li>
+            <li>Cue ceremony &amp; reception events</li>
+            <li>Breakdown &amp; collection of personal items</li>
+            <li>Distribute final vendor payments (provided by client)</li>
+            <li>Unlimited phone &amp; email contact</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-gold package-cta">Inquire Now</a>
         </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+
+        <!-- Buttercup Ivy -->
+        <div class="package-card package-card-featured">
+          <div class="package-badge">Most Popular</div>
+          <div class="package-header">
+            <span class="package-eyebrow">Enhanced</span>
+            <h3>Buttercup Ivy</h3>
+            <p class="package-type">Partial Wedding Planning</p>
           </div>
-          <h3>Day-of Coordination</h3>
-          <p>You've planned it beautifully — we'll make sure it unfolds flawlessly. Our day-of coordination ensures a seamless, stress-free celebration.</p>
-          <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+          <p class="package-desc">Designed for couples needing professional guidance in the essential aspects of wedding planning. Includes everything in Sprig of Holly.</p>
+          <ul class="package-list">
+            <li>5 face-to-face meetings (1 must be at venue)</li>
+            <li>Budget creation &amp; vendor sourcing</li>
+            <li>Guidance with theme, décor, colors &amp; invitations</li>
+            <li>Keep client on track with planning process</li>
+            <li>Assist with review of all vendor contracts</li>
+            <li>Creation of wedding timeline</li>
+            <li>Manage all vendor details</li>
+            <li>Organize wedding party &amp; conduct rehearsal</li>
+            <li>Assist wedding party with flowers/corsages</li>
+            <li>Seating arrangement &amp; crowd control</li>
+            <li>Set up personal items (signage, DIY décor, etc.)</li>
+            <li>Audio/visual check</li>
+            <li>Cue ceremony &amp; reception events</li>
+            <li>Breakdown &amp; collection of personal items</li>
+            <li>Distribute final vendor payments (provided by client)</li>
+            <li>Unlimited phone &amp; email contact</li>
+          </ul>
+          <a href="#contact" class="btn btn-gold package-cta">Inquire Now</a>
         </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+
+        <!-- Mona Lisa Ivy -->
+        <div class="package-card">
+          <div class="package-header">
+            <span class="package-eyebrow">Full Service</span>
+            <h3>Mona Lisa Ivy</h3>
+            <p class="package-type">Full Wedding Planning</p>
           </div>
-          <h3>Event Design &amp; Styling</h3>
-          <p>We create curated, cohesive aesthetics for any event — birthdays, showers, retirement parties — infused with your personal touch and our creative vision.</p>
-          <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+          <p class="package-desc">Personalized assistance from beginning to end for all aspects of your wedding. Includes everything in Buttercup Ivy and Sprig of Holly.</p>
+          <ul class="package-list">
+            <li>8 face-to-face meetings (1 must be at venue)</li>
+            <li>Venue selection &amp; site visit setup</li>
+            <li>Vendor sourcing &amp; quote negotiation</li>
+            <li>Guidance with theme, décor, colors &amp; invitations</li>
+            <li>Assist with wedding attire &amp; party gifts</li>
+            <li>Assist with travel &amp; accommodations for guests</li>
+            <li>Assist with review of all vendor contracts</li>
+            <li>Creation of wedding timeline</li>
+            <li>Manage all vendor details</li>
+            <li>Organize wedding party &amp; conduct rehearsal</li>
+            <li>Assist wedding party with flowers/corsages</li>
+            <li>Seating arrangement &amp; crowd control</li>
+            <li>Set up personal items (signage, DIY décor, etc.)</li>
+            <li>Audio/visual check</li>
+            <li>Cue ceremony &amp; reception events</li>
+            <li>Breakdown &amp; collection of personal items</li>
+            <li>Distribute final vendor payments (provided by client)</li>
+            <li>Unlimited phone &amp; email contact</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-gold package-cta">Inquire Now</a>
         </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <h3>Event Rentals</h3>
-          <p>Browse our curated selection of elegant rentals — arches, linens, charger plates, and more — to elevate your event without the overhead.</p>
-          <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+
+      </div>
+
+      <!-- Other Events -->
+      <div class="other-events-band">
+        <div class="other-events-content">
+          <span class="eyebrow">Beyond Weddings</span>
+          <h3>Event Planning &amp; Design</h3>
+          <p>Birthdays, anniversaries, baby showers, brunch with the ladies? We do it ALL! No event is too big or too small — reach out and let's create something beautiful together.</p>
         </div>
-        <div class="service-card">
-          <div class="service-icon">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>Corporate &amp; Social Events</h3>
-          <p>Whether it's an intimate gathering or a corporate celebration, we bring the same precision and passion to every event we touch.</p>
-          <a href="#contact" class="service-link">Inquire Now &rarr;</a>
+        <a href="#contact" class="btn btn-gold">Get in Touch</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" class="section faq">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="faq-intro">
+          <span class="eyebrow">FAQs</span>
+          <span class="gold-line gold-line-left"></span>
+          <h2>Frequently Asked<br />Questions</h2>
+          <p>Have more questions? We'd love to connect.</p>
+          <a href="#contact" class="btn btn-outline-gold" style="margin-top:1.5rem">Ask Us Anything</a>
         </div>
-        <div class="service-card service-card-cta">
-          <p class="service-cta-label">Ready to start?</p>
-          <h3>Let's Bring Your Vision to Life</h3>
-          <a href="#contact" class="btn btn-gold">Get in Touch</a>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What will working with a wedding planner entail?</summary>
+            <div class="faq-answer">
+              <p>Depending upon which package you choose, your wedding planner is there to organize and make sense of all the moving parts when planning a wedding. They will assist you with creating a budget, selecting vendors, creating a timeline for the day, and the overall seamless execution of your big day!</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Why do I need a day-of coordinator?</summary>
+            <div class="faq-answer">
+              <p>Weddings are expensive, but the one vendor that is crucial to making your big day a worry-free success is your coordinator! The day-of coordinator plays the integral role of managing your vendors, following a timeline for the day, and executing all the fine details to make your vision come alive.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Do you offer custom packages if the three wedding options don't apply to me?</summary>
+            <div class="faq-answer">
+              <p>Absolutely! The three packages we offer may not suit your needs, or you may have specific events that span a few days. Whatever the case may be, we are more than happy to customize a package that suits your specific event needs.</p>
+            </div>
+          </details>
         </div>
       </div>
     </div>
@@ -283,7 +375,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
               <div>
                 <span>Location</span>
-                <p>Placentia, CA &amp; surrounding areas</p>
+                <p>Orange County, CA &amp; surrounding areas</p>
               </div>
             </div>
           </div>
@@ -567,79 +659,214 @@ import Layout from '../layouts/Layout.astro';
     margin-top: 0.5rem;
   }
 
-  .services-grid {
+  /* Package cards */
+  .packages-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    align-items: start;
+    margin-bottom: 3rem;
   }
 
-  .service-card {
+  .package-card {
     background: var(--white);
-    padding: 2.5rem 2rem;
     border: 1px solid var(--light-gray);
-    transition: all 0.3s ease;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
-  .service-card:hover {
-    border-color: var(--gold-light);
+  .package-card:hover {
     box-shadow: 0 8px 40px rgba(201,169,110,0.12);
     transform: translateY(-4px);
   }
 
-  .service-icon {
+  .package-card-featured {
+    border-color: var(--gold);
+    background: var(--white);
+  }
+
+  .package-badge {
+    position: absolute;
+    top: -1px;
+    right: 2rem;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+  }
+
+  .package-header {
+    margin-bottom: 1rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .package-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 1.5rem;
   }
 
-  .service-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.8rem;
+  .package-card h3 {
+    font-size: 1.6rem;
+    margin: 0.3rem 0 0.2rem;
   }
 
-  .service-card p {
+  .package-type {
+    font-size: 0.82rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  .package-desc {
     font-size: 0.88rem;
     color: var(--gray);
     line-height: 1.7;
     margin-bottom: 1.5rem;
   }
 
-  .service-link {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 500;
+  .package-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+
+  .package-list li {
+    font-size: 0.84rem;
+    color: var(--charcoal);
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .package-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .package-cta {
+    display: inline-block;
+    text-align: center;
+    margin-top: auto;
+  }
+
+  /* Other events band */
+  .other-events-band {
+    background: var(--charcoal);
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 0.5rem;
+  }
+
+  .other-events-content h3 {
+    font-size: 1.6rem;
+    color: var(--white);
+    margin: 0.4rem 0 0.8rem;
+  }
+
+  .other-events-content p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    max-width: 520px;
+  }
+
+  /* ===== FAQ ===== */
+  .faq { background: var(--cream); }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .faq-intro h2 {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    margin-bottom: 0.8rem;
+  }
+
+  .faq-intro > p {
+    font-size: 0.92rem;
+    color: var(--gray);
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .faq-item summary {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    padding: 1.4rem 2.5rem 1.4rem 0;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    color: var(--charcoal);
     transition: color 0.2s;
   }
 
-  .service-link:hover { color: var(--gold-dark); }
+  .faq-item summary::-webkit-details-marker { display: none; }
 
-  .service-card-cta {
-    background: var(--charcoal);
-    border-color: var(--charcoal);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1rem;
+  .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--gold);
+    transition: transform 0.3s ease;
+    line-height: 1;
   }
 
-  .service-card-cta:hover {
-    border-color: var(--charcoal);
-    transform: translateY(-4px);
+  .faq-item[open] summary::after {
+    transform: translateY(-50%) rotate(45deg);
   }
 
-  .service-cta-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold) !important;
-    margin-bottom: 0 !important;
+  .faq-item[open] summary {
+    color: var(--gold-dark);
   }
 
-  .service-card-cta h3 {
-    color: var(--white);
-    font-size: 1.5rem;
+  .faq-answer {
+    padding: 0 0 1.5rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.92rem;
+    color: var(--gray);
+    line-height: 1.8;
   }
 
   /* ===== GALLERY ===== */
@@ -957,8 +1184,19 @@ import Layout from '../layouts/Layout.astro';
       height: 200px;
     }
 
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .packages-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .other-events-band {
+      flex-direction: column;
+      text-align: center;
+      padding: 2.5rem 2rem;
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
 
     .testimonials-grid {
@@ -993,9 +1231,6 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (max-width: 600px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
 
     .gallery-grid {
       grid-template-columns: 1fr;

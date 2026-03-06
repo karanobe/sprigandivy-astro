@@ -7,8 +7,8 @@ export interface Props {
 }
 
 const {
-  title = 'Sprig & Ivy | Wedding & Event Planner in Placentia, CA',
-  description = 'Sprig & Ivy is a luxury wedding and event planning company based in Placentia, CA. From intimate celebrations to grand weddings, we bring your vision to life with elegance and attention to detail.',
+  title = 'Sprig & Ivy | Wedding & Event Planner in Orange County, CA',
+  description = 'Sprig & Ivy is a luxury wedding and event planning company based in Orange County, CA. From intimate celebrations to grand weddings, we bring your vision to life with elegance and attention to detail.',
   canonical = 'https://sprigandivy.com/',
   ogImage = 'https://sprigandivy.com/images/portfolio/styled-shoot/4.JPG',
 } = Astro.props;
@@ -26,7 +26,7 @@ const schema = {
       "email": "contact@sprigandivy.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Placentia",
+        "addressLocality": "Orange County",
         "addressRegion": "CA",
         "addressCountry": "US"
       },
@@ -41,13 +41,44 @@ const schema = {
       ],
       "priceRange": "$$",
       "image": ogImage,
-      "servesCuisine": null,
-      "serviceType": [
-        "Wedding Planning",
-        "Event Planning",
-        "Day-of Coordination",
-        "Event Rentals"
-      ]
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Wedding & Event Planning Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sprig of Holly — Day of Coordination",
+              "description": "Ideal for couples who have done the leg work in planning their big day, but would like assistance in execution on the day of their wedding."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Buttercup Ivy — Partial Wedding Planning",
+              "description": "Designed for couples needing professional guidance in the essential aspects of wedding planning."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mona Lisa Ivy — Full Wedding Planning",
+              "description": "Personalized assistance from beginning to end for all aspects of your wedding."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Event Planning & Design",
+              "description": "Birthday parties, anniversaries, baby showers, and more. No event is too big or too small."
+            }
+          }
+        ]
+      }
     },
     {
       "@type": "WebSite",
@@ -55,6 +86,36 @@ const schema = {
       "url": "https://sprigandivy.com/",
       "name": "Sprig & Ivy",
       "publisher": { "@id": "https://sprigandivy.com/#business" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sprigandivy.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What will working with a wedding planner entail?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depending upon which package you choose, your wedding planner is there to organize and make sense of all the moving parts when planning a wedding. They will assist you with creating a budget, selecting vendors, creating a timeline for the day, and the overall seamless execution of your big day!"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I need a day-of coordinator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Weddings are expensive, but the one vendor that is crucial to making your big day a worry-free success is your coordinator! The day-of coordinator plays the integral role of managing your vendors, following a timeline for the day, and executing all the fine details to make your vision come alive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer custom wedding packages if the three wedding options don't apply to me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! The three packages we offer may not suit your needs, or you may have specific events that span a few days. Whatever the case may be, we are more than happy to customize a package that suits your specific event needs."
+          }
+        }
+      ]
     }
   ]
 };
@@ -547,6 +608,7 @@ const schema = {
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#faq">FAQs</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -570,6 +632,7 @@ const schema = {
     </div>
     <a href="#about">About</a>
     <a href="#services">Services</a>
+    <a href="#faq">FAQs</a>
     <a href="#testimonials">Reviews</a>
     <a href="#contact" class="mobile-cta">Let's Chat</a>
   </div>
@@ -597,7 +660,7 @@ const schema = {
           <h4>Get in Touch</h4>
           <p><a href="tel:+17144559150">+1.714.455.9150</a></p>
           <p><a href="mailto:contact@sprigandivy.com">contact@sprigandivy.com</a></p>
-          <p>Placentia, CA</p>
+          <p>Orange County, CA</p>
           <div class="social-links" style="margin-top:1rem">
             <a href="https://www.facebook.com/sprigandivy" target="_blank" rel="noopener" aria-label="Facebook">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -610,7 +673,7 @@ const schema = {
       </div>
       <div class="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Sprig &amp; Ivy. All rights reserved.</p>
-        <p>Made with love in Placentia, CA</p>
+        <p>&copy; {new Date().getFullYear()} Sprig &amp; Ivy</p>
       </div>
     </div>
   </footer>
