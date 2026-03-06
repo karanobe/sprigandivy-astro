@@ -1,17 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import heroImg        from '../assets/images/portfolio/styled-shoot/4.JPG';
+import aboutImg       from '../assets/images/about-us.jpg';
+import gallery2Img    from '../assets/images/portfolio/Lauren-Nick/16.JPG';
+import gallery3Img    from '../assets/images/portfolio/Cecilia-80th/5.JPG';
+import gallery4Img    from '../assets/images/portfolio/Dana-Shane/1.JPG';
+import clientsBgImg   from '../assets/images/banner/clients.jpg';
+import avatar05       from '../assets/images/05.jpg';
+import avatar06       from '../assets/images/06.jpg';
+import avatar07       from '../assets/images/07.jpg';
+import avatar08       from '../assets/images/08.jpg';
 ---
 
 <Layout>
   <!-- ===================== HERO ===================== -->
   <section id="hero" class="hero">
     <div class="hero-bg">
-      <img
-        src="/images/portfolio/styled-shoot/4.JPG"
+      <Image
+        src={heroImg}
         alt="Elegant wedding event by Sprig & Ivy"
         class="hero-img"
         loading="eager"
         fetchpriority="high"
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
       />
       <div class="hero-overlay"></div>
     </div>
@@ -53,12 +67,12 @@ import Layout from '../layouts/Layout.astro';
       <div class="about-grid">
         <div class="about-images">
           <div class="about-img-main">
-            <img
-              src="/images/about-us.jpg"
+            <Image
+              src={aboutImg}
               alt="Shraddha Sharma — Sprig & Ivy founder"
               loading="lazy"
-              width="500"
-              height="600"
+              widths={[500, 900]}
+              sizes="(max-width: 900px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -238,19 +252,19 @@ import Layout from '../layouts/Layout.astro';
   <section class="gallery-strip" aria-label="Portfolio gallery">
     <div class="gallery-grid">
       <div class="gallery-item gallery-item-tall">
-        <img src="/images/portfolio/styled-shoot/4.JPG" alt="Styled shoot by Sprig & Ivy" loading="lazy" />
+        <Image src={heroImg} alt="Styled shoot by Sprig & Ivy" loading="lazy" widths={[600, 900]} sizes="33vw" />
         <div class="gallery-overlay">
           <a href="#contact" class="btn btn-outline">Book This Look</a>
         </div>
       </div>
       <div class="gallery-item">
-        <img src="/images/portfolio/Lauren-Nick/16.JPG" alt="Wedding by Sprig & Ivy" loading="lazy" />
+        <Image src={gallery2Img} alt="Wedding by Sprig & Ivy" loading="lazy" widths={[600, 900]} sizes="33vw" />
       </div>
       <div class="gallery-item">
-        <img src="/images/portfolio/Cecilia-80th/5.JPG" alt="80th birthday event by Sprig & Ivy" loading="lazy" />
+        <Image src={gallery3Img} alt="80th birthday event by Sprig & Ivy" loading="lazy" widths={[600, 900]} sizes="33vw" />
       </div>
       <div class="gallery-item gallery-item-wide">
-        <img src="/images/portfolio/Dana-Shane/1.JPG" alt="Wedding reception by Sprig & Ivy" loading="lazy" />
+        <Image src={gallery4Img} alt="Wedding reception by Sprig & Ivy" loading="lazy" widths={[900, 1200]} sizes="66vw" />
         <div class="gallery-overlay">
           <a href="#contact" class="btn btn-outline">Plan Your Event</a>
         </div>
@@ -261,7 +275,7 @@ import Layout from '../layouts/Layout.astro';
   <!-- ===================== TESTIMONIALS ===================== -->
   <section id="testimonials" class="section testimonials">
     <div class="testimonials-bg">
-      <img src="/images/banner/clients.jpg" alt="" aria-hidden="true" loading="lazy" />
+      <Image src={clientsBgImg} alt="" aria-hidden="true" loading="lazy" widths={[768, 1280, 1920]} sizes="100vw" />
       <div class="testimonials-overlay"></div>
     </div>
     <div class="container">
@@ -273,7 +287,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="/images/05.jpg" alt="Randy M." loading="lazy" />
+            <Image src={avatar05} alt="Randy M." loading="lazy" width={120} height={120} />
           </div>
           <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"They went above and beyond in working with my schedule. We did an old Hollywood theme and had my entire house and yard setup for her arrival. My wife had a good time. Thank you."</p>
@@ -284,7 +298,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="/images/06.jpg" alt="Kimberly S." loading="lazy" />
+            <Image src={avatar06} alt="Kimberly S." loading="lazy" width={120} height={120} />
           </div>
           <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"They walked me through every step. My favorite part was the wedding budget they helped me and my fiancé create and also cute DIY ideas that would help save more money. I would definitely recommend them."</p>
@@ -295,7 +309,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="/images/07.jpg" alt="Amber S." loading="lazy" />
+            <Image src={avatar07} alt="Amber S." loading="lazy" width={120} height={120} />
           </div>
           <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"AMAZING! I had a smaller wedding and other coordinators were charging in the thousands and it just seemed totally ridiculous. I came across Sprig &amp; Ivy and literally felt like these girls were my BFF!"</p>
@@ -306,7 +320,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="testimonial-card">
           <div class="testimonial-avatar">
-            <img src="/images/08.jpg" alt="Dhara P." loading="lazy" />
+            <Image src={avatar08} alt="Dhara P." loading="lazy" width={120} height={120} />
           </div>
           <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"I price shopped like crazy and no other coordinator offered the price they were able to give me. They were so willing to work with my budget and didn't force any additional services. I will work with them again."</p>
