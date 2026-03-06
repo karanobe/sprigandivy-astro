@@ -1,0 +1,665 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Sprig & Ivy | Wedding & Event Planner in Placentia, CA',
+  description = 'Sprig & Ivy is a luxury wedding and event planning company based in Placentia, CA. From intimate celebrations to grand weddings, we bring your vision to life with elegance and attention to detail.',
+  canonical = 'https://sprigandivy.com/',
+  ogImage = 'https://sprigandivy.com/images/portfolio/styled-shoot/4.JPG',
+} = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://sprigandivy.com/#business",
+      "name": "Sprig & Ivy",
+      "description": description,
+      "url": "https://sprigandivy.com/",
+      "telephone": "+17144559150",
+      "email": "contact@sprigandivy.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Placentia",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.8722,
+        "longitude": -117.8703
+      },
+      "sameAs": [
+        "https://www.facebook.com/sprigandivy",
+        "https://www.instagram.com/sprigandivy"
+      ],
+      "priceRange": "$$",
+      "image": ogImage,
+      "servesCuisine": null,
+      "serviceType": [
+        "Wedding Planning",
+        "Event Planning",
+        "Day-of Coordination",
+        "Event Rentals"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sprigandivy.com/#website",
+      "url": "https://sprigandivy.com/",
+      "name": "Sprig & Ivy",
+      "publisher": { "@id": "https://sprigandivy.com/#business" }
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="Sprig & Ivy" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logo-dark.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <style is:global>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a96e;
+      --gold-light: #e8d5b0;
+      --gold-dark: #a07840;
+      --white: #ffffff;
+      --off-white: #faf9f7;
+      --cream: #f5f0e8;
+      --charcoal: #2a2a2a;
+      --gray: #6b6b6b;
+      --light-gray: #e8e4dc;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-weight: 300;
+      color: var(--charcoal);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section {
+      padding: 100px 0;
+    }
+
+    .section-sm {
+      padding: 70px 0;
+    }
+
+    .gold-line {
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.5rem auto;
+    }
+
+    .gold-line-left {
+      margin: 1.5rem 0;
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-dark);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--charcoal);
+      border-color: var(--white);
+    }
+
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    /* Show light logo on transparent nav, dark logo when scrolled */
+    .nav-logo-light { display: block; }
+    .nav-logo-dark  { display: none;  }
+    nav.scrolled .nav-logo-light { display: none;  }
+    nav.scrolled .nav-logo-dark  { display: block; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      transition: color 0.2s;
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--charcoal);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    nav.scrolled .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta a {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 0.6rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled .nav-cta a {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .nav-cta a:hover {
+      background: var(--white);
+      color: var(--charcoal);
+      border-color: var(--white);
+    }
+
+    nav.scrolled .nav-cta a:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 1002;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--white);
+      transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+      transform-origin: center;
+    }
+
+    nav.scrolled .hamburger span {
+      background: var(--charcoal);
+    }
+
+    .hamburger.open span {
+      background: var(--charcoal);
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(6.5px) rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    /* Mobile menu overlay — lives outside <nav> to avoid backdrop-filter containing block */
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--white);
+      z-index: 1001;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    #mobile-menu.open {
+      display: flex;
+    }
+
+    #mobile-menu a {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      transition: color 0.2s;
+    }
+
+    #mobile-menu a:hover {
+      color: var(--gold);
+    }
+
+    #mobile-menu .mobile-cta {
+      margin-top: 0.5rem;
+      padding: 0.8rem 2.5rem;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    #mobile-menu .mobile-cta:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .mobile-menu-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 1.5rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    #mobile-menu-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--charcoal);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+    }
+
+    #mobile-menu-close:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 0 30px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand img {
+      height: 45px;
+      width: auto;
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--gold);
+    }
+
+    .footer-contact p {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-contact a {
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-contact a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .social-links a:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    @media (max-width: 768px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      .section { padding: 70px 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img class="nav-logo-light" src="/images/logo-light.svg" alt="Sprig & Ivy" width="120" height="44" />
+        <img class="nav-logo-dark"  src="/images/logo-dark.svg"  alt="Sprig & Ivy" width="120" height="44" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="#contact">Let's Chat</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu overlay — must be a direct body child, not inside <nav>,
+       because backdrop-filter on nav creates a containing block that clips fixed children -->
+  <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <div class="mobile-menu-header">
+      <img src="/images/logo-dark.svg" alt="Sprig & Ivy" width="110" height="44" />
+      <button id="mobile-menu-close" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact" class="mobile-cta">Let's Chat</a>
+  </div>
+
+  <slot />
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="/images/logo-light.svg" alt="Sprig & Ivy" width="120" height="44" />
+          <p>We believe in the BIG DREAMS<br />and the small details.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Client Love</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Get in Touch</h4>
+          <p><a href="tel:+17144559150">+1.714.455.9150</a></p>
+          <p><a href="mailto:contact@sprigandivy.com">contact@sprigandivy.com</a></p>
+          <p>Placentia, CA</p>
+          <div class="social-links" style="margin-top:1rem">
+            <a href="https://www.facebook.com/sprigandivy" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/sprigandivy" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Sprig &amp; Ivy. All rights reserved.</p>
+        <p>Made with love in Placentia, CA</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar    = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('mobile-menu-close');
+    let menuOpen = false;
+
+    // Navbar scroll state — paused while menu is open
+    const onScroll = () => {
+      if (menuOpen) return;
+      navbar?.classList.toggle('scrolled', window.scrollY > 60);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const openMenu = () => {
+      menuOpen = true;
+      mobileMenu?.classList.add('open');
+      hamburger?.classList.add('open');
+      hamburger?.setAttribute('aria-expanded', 'true');
+      hamburger?.setAttribute('aria-label', 'Close menu');
+      navbar?.classList.add('scrolled');       // solid bg so hamburger reads clearly
+      document.body.style.overflow = 'hidden'; // prevent scroll-behind
+    };
+
+    const closeMenu = () => {
+      menuOpen = false;
+      mobileMenu?.classList.remove('open');
+      hamburger?.classList.remove('open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      hamburger?.setAttribute('aria-label', 'Open menu');
+      document.body.style.overflow = '';
+      onScroll(); // re-evaluate scrolled state
+    };
+
+    hamburger?.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());
+    menuClose?.addEventListener('click', closeMenu);
+
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuOpen) closeMenu();
+    });
+  </script>
+</body>
+</html>
