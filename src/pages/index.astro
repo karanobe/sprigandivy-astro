@@ -352,8 +352,8 @@ import ringsIcon      from '../assets/images/services/rings.png';
             method="POST"
             novalidate
           >
-            <!-- Honeypot -->
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <!-- Honeypot (Formspark: _honeypot or _gotcha — bots that fill this are rejected) -->
+            <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <div class="form-row">
               <div class="form-group">
@@ -439,12 +439,17 @@ import ringsIcon      from '../assets/images/services/rings.png';
 
         try {
           var formData = new FormData(form);
-          const response = await fetch('https://submit-form.com/lDeONWre', {
+          var data = {};
+          for (var pair of formData.entries()) {
+            data[pair[0]] = pair[1];
+          }
+          var response = await fetch('https://submit-form.com/lDeONWre', {
             method: 'POST',
-            body: formData,
             headers: {
+              'Content-Type': 'application/json',
               'Accept': 'application/json',
             },
+            body: JSON.stringify(data),
           });
 
           if (response.ok) {
