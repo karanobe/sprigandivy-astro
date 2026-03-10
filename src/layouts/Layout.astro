@@ -4,6 +4,7 @@ export interface Props {
   description?: string;
   canonical?: string;
   ogImage?: string;
+  solidNav?: boolean;
 }
 
 const {
@@ -11,6 +12,7 @@ const {
   description = 'Sprig & Ivy is a luxury wedding and event planning company based in Orange County, CA. From intimate celebrations to grand weddings, we bring your vision to life with elegance and attention to detail.',
   canonical = 'https://sprigandivy.com/',
   ogImage = '/og_image.png',
+  solidNav = false,
 } = Astro.props;
 
 const schema = {
@@ -50,7 +52,7 @@ const schema = {
             "itemOffered": {
               "@type": "Service",
               "name": "Sprig of Holly — Day of Coordination",
-              "description": "Ideal for couples who have done the leg work in planning their big day, but would like assistance in execution on the day of their wedding."
+              "description": "Day of coordination is ideal for couples who have done the leg work in planning their big day, but would like assistance in execution on the day of their wedding."
             }
           },
           {
@@ -58,7 +60,7 @@ const schema = {
             "itemOffered": {
               "@type": "Service",
               "name": "Buttercup Ivy — Partial Wedding Planning",
-              "description": "Designed for couples needing professional guidance in the essential aspects of wedding planning."
+              "description": "This plan is designed for couples needing professional guidance in the essential aspects of wedding planning. Includes everything listed in Sprig of Holly."
             }
           },
           {
@@ -66,7 +68,7 @@ const schema = {
             "itemOffered": {
               "@type": "Service",
               "name": "Mona Lisa Ivy — Full Wedding Planning",
-              "description": "Personalized assistance from beginning to end for all aspects of your wedding."
+              "description": "This plan is designed for couples looking for personalized assistance from beginning to end for all aspects of their wedding. Includes everything listed in Buttercup Ivy and Sprig of Holly."
             }
           },
           {
@@ -599,21 +601,21 @@ const schema = {
 </head>
 <body>
   <!-- Navigation -->
-  <nav id="navbar">
+  <nav id="navbar" class={solidNav ? 'scrolled' : ''}>
     <div class="nav-inner">
       <a href="/" class="nav-logo">
         <img class="nav-logo-light" src="/images/logo-light.svg" alt="Sprig & Ivy" width="120" height="44" />
         <img class="nav-logo-dark"  src="/images/logo-dark.svg"  alt="Sprig & Ivy" width="120" height="44" />
       </a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#faq">FAQs</a></li>
+        <li><a href="/#testimonials">Reviews</a></li>
+        <li><a href="/#contact">Contact</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="#contact">Let's Chat</a>
+        <a href="/#contact">Let's Chat</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span></span><span></span><span></span>
@@ -630,11 +632,11 @@ const schema = {
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#faq">FAQs</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#contact" class="mobile-cta">Let's Chat</a>
+    <a href="/#about">About</a>
+    <a href="/#services">Services</a>
+    <a href="/#faq">FAQs</a>
+    <a href="/#testimonials">Reviews</a>
+    <a href="/#contact" class="mobile-cta">Let's Chat</a>
   </div>
 
   <slot />
@@ -650,10 +652,10 @@ const schema = {
         <div class="footer-col">
           <h4>Navigate</h4>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#testimonials">Client Love</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#testimonials">Client Love</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col footer-contact">
@@ -693,8 +695,11 @@ const schema = {
     let menuOpen = false;
 
     // Navbar scroll state — paused while menu is open
+    // If nav starts with .scrolled (solidNav pages), always keep it
+    const isSolidNav = navbar?.classList.contains('scrolled');
     const onScroll = () => {
       if (menuOpen) return;
+      if (isSolidNav) return;
       navbar?.classList.toggle('scrolled', window.scrollY > 60);
     };
     window.addEventListener('scroll', onScroll, { passive: true });

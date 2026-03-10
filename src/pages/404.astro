@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page Not Found | Sprig & Ivy"
+  description="The page you're looking for doesn't exist. Let's get you back on track."
+  solidNav
+>
+  <section class="not-found">
+    <div class="container">
+      <span class="eyebrow">Page Not Found</span>
+      <span class="gold-line"></span>
+      <h1>Oops, This Page<br />Doesn't Exist</h1>
+      <p>The page you're looking for may have been moved or no longer exists. Let's get you back to planning something beautiful.</p>
+      <a href="/" class="btn btn-gold">Back to Home</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 120px 2rem 80px;
+    background: var(--off-white);
+  }
+
+  .not-found h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .not-found p {
+    font-size: 1rem;
+    color: var(--gray);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+</style>

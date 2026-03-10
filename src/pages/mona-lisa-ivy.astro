@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import monaLisaIvyImg from '../assets/images/services/mona-lisa-ivy.jpg';
+---
+
+<Layout
+  title="Mona Lisa Ivy — Full Wedding Planning | Sprig & Ivy"
+  description="Our Mona Lisa Ivy package provides personalized assistance from beginning to end for all aspects of your wedding, including venue selection, vendor sourcing, and full day-of coordination."
+  canonical="https://sprigandivy.com/mona-lisa-ivy/"
+  solidNav
+>
+  <section class="service-hero">
+    <div class="container">
+      <span class="eyebrow">Wedding Services</span>
+      <span class="gold-line"></span>
+      <h1>Mona Lisa Ivy</h1>
+      <p class="service-type">Full Wedding Planning</p>
+    </div>
+  </section>
+
+  <section class="service-detail section">
+    <div class="container">
+      <div class="service-grid">
+        <div class="service-image-wrap">
+          <Image src={monaLisaIvyImg} alt="Mona Lisa Ivy — Full Wedding Planning" class="service-image" />
+        </div>
+        <div class="service-content">
+          <p class="service-intro">This plan is designed for couples looking for personalized assistance from beginning to end for all aspects of their wedding. <strong>Includes everything listed in Buttercup Ivy and Sprig of Holly.</strong></p>
+          <h2>What's Included</h2>
+          <ul class="service-list">
+            <li>(8) face to face meetings (1 must be at venue)</li>
+            <li>Unlimited phone &amp; e-mail contact</li>
+            <li>Assist with budget and breakdown of costs</li>
+            <li>Assist with venue selection (includes set up of site visit)</li>
+            <li>Assist with finding vendors</li>
+            <li>Creation of wedding timeline</li>
+            <li>Assist with review of all vendor contracts</li>
+            <li>Manage all vendor details</li>
+            <li>Guidance with theme, d&eacute;cor, colors, invitations and overall vision</li>
+            <li>Assure client is on track with planning process</li>
+            <li>Assist with wedding attire</li>
+            <li>Assist with wedding party gifts</li>
+            <li>Contact vendors for quotes and negotiate pricing</li>
+            <li>Set up consultations and meetings with vendors</li>
+            <li>Assist with travel and board for guests</li>
+            <li>Organize wedding party and conduct wedding rehearsal</li>
+            <li>Assist wedding party with flowers/corsages</li>
+            <li>Assist with seating arrangement and crowd control</li>
+            <li>Set up personal items (seating chart, signage, DIY d&eacute;cor, etc.)</li>
+            <li>Audio/visual check</li>
+            <li>Cue ceremony events</li>
+            <li>Cue reception events</li>
+            <li>Breakdown and collection of all personal items</li>
+            <li>Distribution of final payments to all vendors (provided by client)</li>
+          </ul>
+          <a href="/#contact" class="btn btn-gold">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    background: var(--off-white);
+  }
+
+  .service-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-type {
+    font-size: 1rem;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .service-image-wrap {
+    position: sticky;
+    top: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .service-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .service-intro {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-list li {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    padding-left: 1.4rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .service-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  @media (max-width: 768px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .service-image-wrap {
+      position: static;
+    }
+  }
+</style>

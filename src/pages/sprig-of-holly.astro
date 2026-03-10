@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import sprigOfHollyImg from '../assets/images/services/sprig-of-holly.jpg';
+---
+
+<Layout
+  title="Sprig of Holly — Day of Coordination | Sprig & Ivy"
+  description="Our Sprig of Holly package is ideal for couples who have planned their big day but need professional day-of coordination to execute it seamlessly."
+  canonical="https://sprigandivy.com/sprig-of-holly/"
+  solidNav
+>
+  <section class="service-hero">
+    <div class="container">
+      <span class="eyebrow">Wedding Services</span>
+      <span class="gold-line"></span>
+      <h1>Sprig of Holly</h1>
+      <p class="service-type">Day of Coordination</p>
+    </div>
+  </section>
+
+  <section class="service-detail section">
+    <div class="container">
+      <div class="service-grid">
+        <div class="service-image-wrap">
+          <Image src={sprigOfHollyImg} alt="Sprig of Holly — Day of Coordination" class="service-image" />
+        </div>
+        <div class="service-content">
+          <p class="service-intro">Day of coordination is ideal for couples who have done the leg work in planning their big day, but would like assistance in execution on the day of their wedding.</p>
+          <h2>What's Included</h2>
+          <ul class="service-list">
+            <li>(3) face to face meetings (1 must be at venue)</li>
+            <li>Creation of wedding timeline</li>
+            <li>Manage all vendor details</li>
+            <li>Assistance with budget and breakdown of costs</li>
+            <li>Organize wedding party and conduct wedding rehearsal</li>
+            <li>Assist wedding party with flowers/corsages</li>
+            <li>Assist with seating arrangement and crowd control</li>
+            <li>Set up personal items (seating chart, signage, DIY d&eacute;cor, etc.)</li>
+            <li>Audio/visual check</li>
+            <li>Cue ceremony events</li>
+            <li>Cue reception events</li>
+            <li>Breakdown and collection of all personal items</li>
+            <li>Distribution of final payments to all vendors (provided by client)</li>
+            <li>Unlimited phone &amp; e-mail contact</li>
+          </ul>
+          <a href="/#contact" class="btn btn-gold">Schedule a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .service-hero {
+    padding: 160px 0 80px;
+    text-align: center;
+    background: var(--off-white);
+  }
+
+  .service-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-type {
+    font-size: 1rem;
+    color: var(--gray);
+    letter-spacing: 0.1em;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .service-image-wrap {
+    position: sticky;
+    top: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .service-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .service-intro {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-list li {
+    font-size: 0.92rem;
+    color: var(--charcoal);
+    padding-left: 1.4rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .service-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  @media (max-width: 768px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .service-image-wrap {
+      position: static;
+    }
+  }
+</style>

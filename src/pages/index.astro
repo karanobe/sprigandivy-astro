@@ -12,6 +12,9 @@ import avatar05       from '../assets/images/05.jpg';
 import avatar06       from '../assets/images/06.jpg';
 import avatar07       from '../assets/images/07.jpg';
 import avatar08       from '../assets/images/08.jpg';
+import cheersIcon     from '../assets/images/services/cheers.png';
+import cakeIcon       from '../assets/images/services/cake.png';
+import ringsIcon      from '../assets/images/services/rings.png';
 ---
 
 <Layout>
@@ -114,88 +117,35 @@ import avatar08       from '../assets/images/08.jpg';
         <!-- Sprig of Holly -->
         <div class="package-card">
           <div class="package-header">
-            <span class="package-eyebrow">Entry</span>
             <h3>Sprig of Holly</h3>
+            <Image src={cheersIcon} alt="Cheers!" class="package-icon" width={100} />
             <p class="package-type">Day of Coordination</p>
           </div>
-          <p class="package-desc">Ideal for couples who have done the leg work in planning their big day, but would like assistance in execution on the day of their wedding.</p>
-          <ul class="package-list">
-            <li>3 face-to-face meetings (1 must be at venue)</li>
-            <li>Creation of wedding timeline</li>
-            <li>Manage all vendor details</li>
-            <li>Assistance with budget &amp; breakdown of costs</li>
-            <li>Organize wedding party &amp; conduct rehearsal</li>
-            <li>Assist wedding party with flowers/corsages</li>
-            <li>Seating arrangement &amp; crowd control</li>
-            <li>Set up personal items (signage, DIY décor, etc.)</li>
-            <li>Audio/visual check</li>
-            <li>Cue ceremony &amp; reception events</li>
-            <li>Breakdown &amp; collection of personal items</li>
-            <li>Distribute final vendor payments (provided by client)</li>
-            <li>Unlimited phone &amp; email contact</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline-gold package-cta">Inquire Now</a>
+          <p class="package-desc">Day of coordination is ideal for couples who have done the leg work in planning their big day, but would like assistance in execution on the day of their wedding.</p>
+          <a href="/sprig-of-holly" class="btn btn-outline-gold package-cta">Details</a>
         </div>
 
         <!-- Buttercup Ivy -->
         <div class="package-card package-card-featured">
           <div class="package-badge">Most Popular</div>
           <div class="package-header">
-            <span class="package-eyebrow">Enhanced</span>
             <h3>Buttercup Ivy</h3>
+            <Image src={cakeIcon} alt="Cake!" class="package-icon" width={100} />
             <p class="package-type">Partial Wedding Planning</p>
           </div>
-          <p class="package-desc">Designed for couples needing professional guidance in the essential aspects of wedding planning. Includes everything in Sprig of Holly.</p>
-          <ul class="package-list">
-            <li>5 face-to-face meetings (1 must be at venue)</li>
-            <li>Budget creation &amp; vendor sourcing</li>
-            <li>Guidance with theme, décor, colors &amp; invitations</li>
-            <li>Keep client on track with planning process</li>
-            <li>Assist with review of all vendor contracts</li>
-            <li>Creation of wedding timeline</li>
-            <li>Manage all vendor details</li>
-            <li>Organize wedding party &amp; conduct rehearsal</li>
-            <li>Assist wedding party with flowers/corsages</li>
-            <li>Seating arrangement &amp; crowd control</li>
-            <li>Set up personal items (signage, DIY décor, etc.)</li>
-            <li>Audio/visual check</li>
-            <li>Cue ceremony &amp; reception events</li>
-            <li>Breakdown &amp; collection of personal items</li>
-            <li>Distribute final vendor payments (provided by client)</li>
-            <li>Unlimited phone &amp; email contact</li>
-          </ul>
-          <a href="#contact" class="btn btn-gold package-cta">Inquire Now</a>
+          <p class="package-desc">This plan is designed for couples needing professional guidance in the essential aspects of wedding planning.<br /><strong>Includes everything listed in Sprig of Holly.</strong></p>
+          <a href="/buttercup-ivy" class="btn btn-gold package-cta">Details</a>
         </div>
 
         <!-- Mona Lisa Ivy -->
         <div class="package-card">
           <div class="package-header">
-            <span class="package-eyebrow">Full Service</span>
             <h3>Mona Lisa Ivy</h3>
+            <Image src={ringsIcon} alt="Rings!" class="package-icon" width={100} />
             <p class="package-type">Full Wedding Planning</p>
           </div>
-          <p class="package-desc">Personalized assistance from beginning to end for all aspects of your wedding. Includes everything in Buttercup Ivy and Sprig of Holly.</p>
-          <ul class="package-list">
-            <li>8 face-to-face meetings (1 must be at venue)</li>
-            <li>Venue selection &amp; site visit setup</li>
-            <li>Vendor sourcing &amp; quote negotiation</li>
-            <li>Guidance with theme, décor, colors &amp; invitations</li>
-            <li>Assist with wedding attire &amp; party gifts</li>
-            <li>Assist with travel &amp; accommodations for guests</li>
-            <li>Assist with review of all vendor contracts</li>
-            <li>Creation of wedding timeline</li>
-            <li>Manage all vendor details</li>
-            <li>Organize wedding party &amp; conduct rehearsal</li>
-            <li>Assist wedding party with flowers/corsages</li>
-            <li>Seating arrangement &amp; crowd control</li>
-            <li>Set up personal items (signage, DIY décor, etc.)</li>
-            <li>Audio/visual check</li>
-            <li>Cue ceremony &amp; reception events</li>
-            <li>Breakdown &amp; collection of personal items</li>
-            <li>Distribute final vendor payments (provided by client)</li>
-            <li>Unlimited phone &amp; email contact</li>
-          </ul>
-          <a href="#contact" class="btn btn-outline-gold package-cta">Inquire Now</a>
+          <p class="package-desc">This plan is designed for couples looking for personalized assistance from beginning to end for all aspects of their wedding.<br /><strong>Includes everything listed in Buttercup Ivy and Sprig of Holly.</strong></p>
+          <a href="/mona-lisa-ivy" class="btn btn-outline-gold package-cta">Details</a>
         </div>
 
       </div>
@@ -289,7 +239,7 @@ import avatar08       from '../assets/images/08.jpg';
           <div class="testimonial-avatar">
             <Image src={avatar05} alt="Randy M." loading="lazy" width={120} height={120} />
           </div>
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"They went above and beyond in working with my schedule. We did an old Hollywood theme and had my entire house and yard setup for her arrival. My wife had a good time. Thank you."</p>
           <div class="testimonial-author">
             <strong>Randy M.</strong>
@@ -300,7 +250,7 @@ import avatar08       from '../assets/images/08.jpg';
           <div class="testimonial-avatar">
             <Image src={avatar06} alt="Kimberly S." loading="lazy" width={120} height={120} />
           </div>
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"They walked me through every step. My favorite part was the wedding budget they helped me and my fiancé create and also cute DIY ideas that would help save more money. I would definitely recommend them."</p>
           <div class="testimonial-author">
             <strong>Kimberly S.</strong>
@@ -311,7 +261,7 @@ import avatar08       from '../assets/images/08.jpg';
           <div class="testimonial-avatar">
             <Image src={avatar07} alt="Amber S." loading="lazy" width={120} height={120} />
           </div>
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"AMAZING! I had a smaller wedding and other coordinators were charging in the thousands and it just seemed totally ridiculous. I came across Sprig &amp; Ivy and literally felt like these girls were my BFF!"</p>
           <div class="testimonial-author">
             <strong>Amber S.</strong>
@@ -322,7 +272,7 @@ import avatar08       from '../assets/images/08.jpg';
           <div class="testimonial-avatar">
             <Image src={avatar08} alt="Dhara P." loading="lazy" width={120} height={120} />
           </div>
-          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-stars" role="img" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
           <p>"I price shopped like crazy and no other coordinator offered the price they were able to give me. They were so willing to work with my budget and didn't force any additional services. I will work with them again."</p>
           <div class="testimonial-author">
             <strong>Dhara P.</strong>
@@ -390,6 +340,12 @@ import avatar08       from '../assets/images/08.jpg';
         </div>
 
         <div class="contact-form-wrap">
+          <div id="contact-thank-you" class="contact-thank-you" hidden>
+            <span class="eyebrow">Thank You</span>
+            <span class="gold-line gold-line-left"></span>
+            <h2>We've Received Your Inquiry</h2>
+            <p>Thank you for reaching out! We'll be in touch shortly to discuss your event.</p>
+          </div>
           <form
             id="contact-form"
             action="https://submit-form.com/lDeONWre"
@@ -398,8 +354,6 @@ import avatar08       from '../assets/images/08.jpg';
           >
             <!-- Honeypot -->
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-            <!-- Redirect after submit -->
-            <input type="hidden" name="_redirect" value="https://sprigandivy.com/?sent=1" />
 
             <div class="form-row">
               <div class="form-group">
@@ -460,6 +414,56 @@ import avatar08       from '../assets/images/08.jpg';
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('contact-form');
+    var thankYou = document.getElementById('contact-thank-you');
+
+    if (thankYou && typeof URLSearchParams !== 'undefined' && new URLSearchParams(window.location.search).get('sent') === '1') {
+      if (form) form.hidden = true;
+      thankYou.hidden = false;
+      return;
+    }
+
+    if (form && thankYou) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        var submitBtn = form.querySelector('.form-submit');
+        var originalText = submitBtn ? submitBtn.textContent : 'Send My Inquiry';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+
+        try {
+          var formData = new FormData(form);
+          const response = await fetch('https://submit-form.com/lDeONWre', {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json',
+            },
+          });
+
+          if (response.ok) {
+            form.hidden = true;
+            thankYou.hidden = false;
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
+          alert('Something went wrong. Please try again or email us directly at contact@sprigandivy.com');
+        }
+      });
+    }
+  });
+</script>
 
 <style>
   /* ===== HERO ===== */
@@ -695,19 +699,20 @@ import avatar08       from '../assets/images/08.jpg';
     margin-bottom: 1rem;
     padding-bottom: 1.2rem;
     border-bottom: 1px solid var(--light-gray);
-  }
-
-  .package-eyebrow {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
+    text-align: center;
   }
 
   .package-card h3 {
     font-size: 1.6rem;
-    margin: 0.3rem 0 0.2rem;
+    margin: 0 0 0.8rem;
+  }
+
+  .package-icon {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 0.8rem;
+    display: block;
   }
 
   .package-type {
@@ -721,34 +726,6 @@ import avatar08       from '../assets/images/08.jpg';
     color: var(--gray);
     line-height: 1.7;
     margin-bottom: 1.5rem;
-  }
-
-  .package-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.55rem;
-    margin-bottom: 2rem;
-    flex: 1;
-  }
-
-  .package-list li {
-    font-size: 0.84rem;
-    color: var(--charcoal);
-    padding-left: 1.2rem;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .package-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--gold);
   }
 
   .package-cta {
@@ -1088,6 +1065,21 @@ import avatar08       from '../assets/images/08.jpg';
     background: var(--off-white);
     padding: 3rem;
     border: 1px solid var(--light-gray);
+  }
+
+  .contact-thank-you {
+    padding: 1rem 0;
+  }
+
+  .contact-thank-you h2 {
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    margin-bottom: 1rem;
+  }
+
+  .contact-thank-you p {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.7;
   }
 
   .form-row {
