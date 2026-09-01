@@ -348,12 +348,21 @@ import ringsIcon      from '../assets/images/services/rings.png';
           </div>
           <form
             id="contact-form"
-            action="https://submit-form.com/lDeONWre"
             method="POST"
             novalidate
           >
-            <!-- Honeypot (Formspark: _honeypot or _gotcha — bots that fill this are rejected) -->
-            <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <!--
+              Decoy fields. They are positioned off-screen rather than
+              display:none, because bots skip display:none inputs but happily
+              fill these. Nothing here is ever sent: any value means the
+              submission is dropped.
+            -->
+            <div class="decoy-fields" aria-hidden="true">
+              <label for="company_website">Company website</label>
+              <input class="decoy-field" type="text" id="company_website" name="company_website" tabindex="-1" autocomplete="off" />
+              <label for="confirm_email">Confirm email address</label>
+              <input class="decoy-field" type="text" id="confirm_email" name="confirm_email" tabindex="-1" autocomplete="off" />
+            </div>
 
             <div class="form-row">
               <div class="form-group">
@@ -409,6 +418,12 @@ import ringsIcon      from '../assets/images/services/rings.png';
             </div>
             <button type="submit" class="btn btn-gold form-submit">Send My Inquiry</button>
           </form>
+          <noscript>
+            <p class="form-noscript">
+              This form needs JavaScript to send. Please enable it, or email us
+              directly at <a href="mailto:contact@sprigandivy.com">contact@sprigandivy.com</a>.
+            </p>
+          </noscript>
         </div>
       </div>
     </div>
@@ -426,47 +441,160 @@ import ringsIcon      from '../assets/images/services/rings.png';
       return;
     }
 
-    if (form && thankYou) {
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+    if (!form || !thankYou) return;
 
-        var submitBtn = form.querySelector('.form-submit');
-        var originalText = submitBtn ? submitBtn.textContent : 'Send My Inquiry';
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending...';
-        }
+    // The endpoint is kept out of the page source. Spam crawlers harvest form
+    // action URLs from static HTML and POST to them directly, which skips every
+    // check below. Attaching it at runtime means a bot has to execute the page.
+    var ENDPOINT = atob('aHR0cHM6Ly9zdWJtaXQtZm9ybS5jb20vbERlT05XcmU=');
+    form.setAttribute('action', ENDPOINT);
 
-        try {
-          var formData = new FormData(form);
-          var data = {};
-          for (var pair of formData.entries()) {
-            data[pair[0]] = pair[1];
-          }
-          var response = await fetch('https://submit-form.com/lDeONWre', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-            },
-            body: JSON.stringify(data),
-          });
+    var MIN_FILL_SECONDS = 4;
+    var loadedAt = Date.now();
+    var sawHumanInput = false;
 
-          if (response.ok) {
-            form.hidden = true;
-            thankYou.hidden = false;
-          } else {
-            throw new Error('Submission failed');
-          }
-        } catch (err) {
-          if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-          }
-          alert('Something went wrong. Please try again or email us directly at contact@sprigandivy.com');
-        }
+    // Bots set field values programmatically, which fires none of these.
+    ['keydown', 'pointerdown', 'touchstart'].forEach(function(evtName) {
+      form.addEventListener(evtName, function() { sawHumanInput = true; }, { once: true, passive: true });
+    });
+
+    var decoys = form.querySelectorAll('.decoy-field');
+    var decoyNames = Array.prototype.map.call(decoys, function(el) { return el.name; });
+
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
+    var LINK_RE = /(https?:\/\/|www\.|\[url|<a\s)/gi;
+
+    function countLinks(value) {
+      var matches = String(value || '').match(LINK_RE);
+      return matches ? matches.length : 0;
+    }
+
+    function value(name) {
+      var field = form.elements[name];
+      return field ? field.value.trim() : '';
+    }
+
+    function showFieldError(field, message) {
+      field.setAttribute('aria-invalid', 'true');
+      var group = field.closest('.form-group');
+      if (!group) return;
+      var note = group.querySelector('.field-error');
+      if (!note) {
+        note = document.createElement('span');
+        note.className = 'field-error';
+        group.appendChild(note);
+      }
+      note.textContent = message;
+    }
+
+    function clearFieldErrors() {
+      Array.prototype.forEach.call(form.querySelectorAll('.field-error'), function(el) {
+        el.parentNode.removeChild(el);
+      });
+      Array.prototype.forEach.call(form.querySelectorAll('[aria-invalid]'), function(el) {
+        el.removeAttribute('aria-invalid');
       });
     }
+
+    // The form is novalidate and the browser's own checks are bypassed by the
+    // fetch below, so nothing was validating these before.
+    function validate() {
+      clearFieldErrors();
+      var firstInvalid = null;
+
+      function require(name, message, extraTest) {
+        var field = form.elements[name];
+        if (!field) return;
+        var val = field.value.trim();
+        var bad = !val || (extraTest && !extraTest(val));
+        if (!bad) return;
+        showFieldError(field, message);
+        if (!firstInvalid) firstInvalid = field;
+      }
+
+      require('first_name', 'Please enter your first name.');
+      require('last_name', 'Please enter your last name.');
+      require('email', 'Please enter a valid email address.', function(val) {
+        return EMAIL_RE.test(val);
+      });
+
+      if (firstInvalid) firstInvalid.focus();
+      return !firstInvalid;
+    }
+
+    function looksAutomated() {
+      for (var i = 0; i < decoys.length; i++) {
+        if (decoys[i].value) return true;
+      }
+
+      if (!sawHumanInput) return true;
+      if ((Date.now() - loadedAt) / 1000 < MIN_FILL_SECONDS) return true;
+
+      // Link-stuffed SEO spam. One link in the message is fine — couples share
+      // a Pinterest board or a venue page — but links in a name or a venue
+      // field never come from a real inquiry.
+      if (countLinks(value('message')) > 1) return true;
+      if (countLinks(value('first_name') + ' ' + value('last_name') + ' ' + value('location')) > 0) return true;
+
+      return false;
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (!validate()) return;
+
+      // Silently accept and drop. Showing a bot the same success screen a
+      // person sees keeps it from retrying with variations until one lands.
+      if (looksAutomated()) {
+        form.hidden = true;
+        thankYou.hidden = false;
+        return;
+      }
+
+      var submitBtn = form.querySelector('.form-submit');
+      var originalText = submitBtn ? submitBtn.textContent : 'Send My Inquiry';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
+
+      try {
+        var formData = new FormData(form);
+        var data = {};
+        for (var pair of formData.entries()) {
+          if (decoyNames.indexOf(pair[0]) !== -1) continue;
+          data[pair[0]] = pair[1];
+        }
+
+        // Genuine submissions carry these two fields. Anything that reaches the
+        // endpoint without them was posted directly, so it can be filtered.
+        data.submitted_via = 'sprigandivy.com contact form';
+        data.form_fill_seconds = Math.round((Date.now() - loadedAt) / 1000);
+
+        var response = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          form.hidden = true;
+          thankYou.hidden = false;
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+        alert('Something went wrong. Please try again or email us directly at contact@sprigandivy.com');
+      }
+    });
   });
 </script>
 
@@ -1143,6 +1271,39 @@ import ringsIcon      from '../assets/images/services/rings.png';
   }
 
   .form-group textarea { resize: vertical; }
+
+  /* Off-screen rather than display:none, so bots still fill it in. */
+  .decoy-fields {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .form-group input[aria-invalid="true"],
+  .form-group select[aria-invalid="true"],
+  .form-group textarea[aria-invalid="true"] {
+    border-color: #b23c3c;
+  }
+
+  .field-error {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: #b23c3c;
+    margin-top: 0.4rem;
+  }
+
+  .form-noscript {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-top: 1rem;
+  }
+
+  .form-noscript a { color: var(--gold); }
 
   .form-submit {
     width: 100%;
